@@ -12,8 +12,6 @@ class MainView: UIView {
     private(set) var activityIndicator = UIActivityIndicatorView(style: .large)
     private(set) var tableView = UITableView(frame: .zero, style: .plain)
     
-    var viewModel: MainViewModel!
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         activityIndicator.startAnimating()

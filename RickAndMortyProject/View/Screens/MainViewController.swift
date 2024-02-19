@@ -33,7 +33,6 @@ class MainViewController: UIViewController {
         view = mainView
         mainView.tableView.dataSource = self
         mainView.tableView.delegate = self
-        mainView.viewModel = mainViewModel
     }
     
     private func bindMainViewModel() {
