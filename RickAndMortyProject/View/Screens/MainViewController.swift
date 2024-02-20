@@ -56,11 +56,11 @@ extension MainViewController: UITableViewDataSource {
         let character = mainViewModel.characters.value[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: CharacterTableViewCell.identifier, for: indexPath) as! CharacterTableViewCell
         
-        if let cachedImage = cachedDataSourse.object(forKey: character.image as AnyObject) {
+        if let cachedImage = cachedDataSourse.object(forKey: indexPath.row as AnyObject) {
             cell.configure(name: character.name, image: cachedImage, gender: character.gender)
         } else {
             if let characterImage = UIImage(data: character.image) {
-                cachedDataSourse.setObject(characterImage, forKey: character.image as AnyObject)
+                cachedDataSourse.setObject(characterImage, forKey: indexPath.row as AnyObject)
                 cell.configure(name: character.name, image: characterImage, gender: character.gender)
             }
         }

@@ -15,8 +15,8 @@ class MainViewModel {
         
         let backgroundQueue = DispatchQueue.global(qos: .userInitiated)
         backgroundQueue.async {
-            NetworkManager.getInfo(from: urlString) { characters in
-
+            NetworkManager.getInfo(from: urlString) { [weak self] characters in
+                guard let self = self else { return }
                 var updatedCharacters: [CharacterModel] = []
                 let group = DispatchGroup()
                 
